@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import data from './components/data';
 import './App.css';
 
+
 function App() {
+  const [Theme, setTheme] = useState('light');
+
+  const handleChange = (e) => {
+    setTheme(e.target.value)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={Theme}>
+      <div className="background extra">
+        <h1 className="text">Testing!! Attention please!!</h1>
+
+        <label className="text">Select Theme:</label>
+        <select onChange={handleChange}>
+          <option value="swiggy">Swiggy</option>
+          <option value="zomato">Zomato</option>
+        </select>
+
+        <div className="flex">
+          <p className="text">{data[Theme]?.content}</p>
+        </div>
+
+      </div>
     </div>
   );
 }
