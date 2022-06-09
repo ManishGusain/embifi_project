@@ -4,7 +4,7 @@ import './App.css';
 
 
 function App() {
-  const [Theme, setTheme] = useState('light');
+  const [Theme, setTheme] = useState('swiggy');
 
   const handleChange = (e) => {
     setTheme(e.target.value)
